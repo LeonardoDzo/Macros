@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		F74E8FEF262FBF75006E38A2 /* ProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F74E8FEE262FBF75006E38A2 /* ProfileView.swift */; };
 		F77562CB262CFEF500379998 /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F77562CA262CFEF500379998 /* LoginView.swift */; };
 		F77562D0262D02B500379998 /* Color+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = F77562CF262D02B500379998 /* Color+Extension.swift */; };
 		F77562D5262D108300379998 /* UIScreen+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = F77562D4262D108300379998 /* UIScreen+Extension.swift */; };
@@ -46,6 +47,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		F74E8FEE262FBF75006E38A2 /* ProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileView.swift; sourceTree = "<group>"; };
 		F77562CA262CFEF500379998 /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
 		F77562CF262D02B500379998 /* Color+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Color+Extension.swift"; sourceTree = "<group>"; };
 		F77562D4262D108300379998 /* UIScreen+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIScreen+Extension.swift"; sourceTree = "<group>"; };
@@ -98,6 +100,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		F74E8FEA262FBF5B006E38A2 /* Profile */ = {
+			isa = PBXGroup;
+			children = (
+				F74E8FEE262FBF75006E38A2 /* ProfileView.swift */,
+			);
+			path = Profile;
+			sourceTree = "<group>";
+		};
 		F7A209C92629E048008B6869 = {
 			isa = PBXGroup;
 			children = (
@@ -163,6 +173,7 @@
 		F7A20A03262A2AC1008B6869 /* Scenes */ = {
 			isa = PBXGroup;
 			children = (
+				F74E8FEA262FBF5B006E38A2 /* Profile */,
 				F7A20A4E262A2DBD008B6869 /* Login */,
 				F7A20A04262A2ACB008B6869 /* Admin */,
 			);
@@ -394,6 +405,7 @@
 				F7A209D62629E048008B6869 /* MacrosApp.swift in Sources */,
 				F7A20A1A262A2B73008B6869 /* UserCellView.swift in Sources */,
 				F7A20A2E262A2C0A008B6869 /* ResignKeyboardOnDragGesture.swift in Sources */,
+				F74E8FEF262FBF75006E38A2 /* ProfileView.swift in Sources */,
 				F7A20A1F262A2B96008B6869 /* SearchBarView.swift in Sources */,
 				F7A20A3D262A2C5F008B6869 /* UIApplication+Extension.swift in Sources */,
 				F7A20A24262A2BBE008B6869 /* UserViewModel.swift in Sources */,
