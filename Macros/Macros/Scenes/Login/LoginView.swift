@@ -7,10 +7,9 @@
 
 import SwiftUI
 
-struct LoginView: View {
-    @State var phone: String = ""
-    @State var password: String = ""
-    @State var goToAdmin: Bool = false
+struct LoginView<ViewModel: LoginViewModel>: View {
+
+    @EnvironmentObject var viewModel: ViewModel
 
     private let circleWidth = UIScreen.width * 1.5
 
@@ -28,8 +27,6 @@ struct LoginView: View {
                     .frame(width: UIScreen.width / 1.5)
                     .padding(.top, -UIScreen.width)
 
-
-
                 VStack {
 
                     Text("Bienvenido")
@@ -39,21 +36,21 @@ struct LoginView: View {
                         .font(.footnote)
 
 
-                    TextField("Teléfono", text: $phone)
+                    TextField("Teléfono", text: $viewModel.phone)
                         .padding()
                         .background(Color.textField)
                         .cornerRadius(25.0)
                         .keyboardType(.phonePad)
                         .padding(.top)
 
-                    SecureField("Contraseña", text: $password)
+                    SecureField("Contraseña", text: $viewModel.password)
                         .padding()
                         .background(Color.textField)
                         .cornerRadius(25.0)
                         .padding(.bottom)
 
                     Button(action: {
-                        self.goToAdmin.toggle()
+                        viewModel.goToAdmin.toggle()
                     }, label: {
                         Text("Iniciar sesión")
                             .font(.headline)
@@ -63,15 +60,15 @@ struct LoginView: View {
                             .background(Color.main)
                             .cornerRadius(25.0)
 
-
-                    }).sheet(isPresented: $goToAdmin, content: {
+                    })
+                    .disabled(!viewModel.isLoginButonAvailable)
+                    .sheet(isPresented: $viewModel.goToAdmin, content: {
                         UsersView()
                     })
                 }.padding(.horizontal)
 
             }
         }
-
 
     }
 }
@@ -86,6 +83,6 @@ struct SemiCircle: Shape {
 
 struct LoginView_Previews: PreviewProvider {
     static var previews: some View {
-        LoginView()
+        LoginView<LoginViewModelImp>().environmentObject(LoginViewModelImp())
     }
 }

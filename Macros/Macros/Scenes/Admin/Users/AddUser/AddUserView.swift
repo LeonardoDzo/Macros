@@ -23,3 +23,10 @@ struct AddUserView: View {
         }.padding(.trailing)
     }
 }
+
+struct AddUserView_Previews: PreviewProvider {
+    static var previews: some View {
+        AddUserView()
+    }
+}
+

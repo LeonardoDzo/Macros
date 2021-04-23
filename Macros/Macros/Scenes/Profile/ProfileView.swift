@@ -9,7 +9,7 @@ import SwiftUI
 
 struct ProfileViewModel {
     var firstName: String = "Leonardo"
-    var lastName: String = "Durazo"
+    var lastName: String = "Durazo Duran"
     var phone: String = "6623442817"
     var membershipStatus: MembershipStatus = .active
     var paidDay: String = "Lunes, 10 de Mayo"
