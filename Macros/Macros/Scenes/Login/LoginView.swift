@@ -50,7 +50,7 @@ struct LoginView<ViewModel: LoginViewModel>: View {
                         .padding(.bottom)
 
                     Button(action: {
-                        viewModel.goToAdmin.toggle()
+                        viewModel.login()
                     }, label: {
                         Text("Iniciar sesión")
                             .font(.headline)

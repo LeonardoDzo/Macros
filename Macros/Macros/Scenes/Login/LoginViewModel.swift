@@ -13,6 +13,7 @@ protocol LoginViewModel: ObservableObject {
     var password: String { get set }
     var goToAdmin: Bool { get set }
     var isLoginButonAvailable: Bool { get set }
+    func login() 
 }
 
 final class LoginViewModelImp: LoginViewModel {
@@ -29,8 +30,17 @@ final class LoginViewModelImp: LoginViewModel {
     @Published var goToAdmin: Bool = false
     @Published var isLoginButonAvailable: Bool = false
 
+    private let model: LoginModel
+
+    init(model: LoginModel = LoginModelImp()) {
+        self.model = model
+    }
+
+    func login() {
+        model.login(email: phone, password: password)
+    }
 
     private func validate() {
-        isLoginButonAvailable = phone.count == 10 && password.count >= 8
+        isLoginButonAvailable = phone.count >= 10 && password.count >= 8
     }
 }
