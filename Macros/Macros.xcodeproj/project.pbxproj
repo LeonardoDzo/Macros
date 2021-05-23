@@ -10,8 +10,11 @@
 		5FF853EADCD8A3C78C732C0B /* Pods_Macros_MacrosUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2965FEDDE37FF21E05724728 /* Pods_Macros_MacrosUITests.framework */; };
 		EF917EB98ED1A83A7592FC24 /* Pods_MacrosTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DB95B72B7BA966349DF3DEB9 /* Pods_MacrosTests.framework */; };
 		F2C28C52D7082AFF8EACE5F2 /* Pods_Macros.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 01C9616C8DA30B476F8CA477 /* Pods_Macros.framework */; };
+		F709D1192659F9B000212EAC /* GetProfileService.swift in Sources */ = {isa = PBXBuildFile; fileRef = F709D1182659F9B000212EAC /* GetProfileService.swift */; };
 		F71A2BC826423E51009BBAAB /* LoginService.swift in Sources */ = {isa = PBXBuildFile; fileRef = F71A2BC726423E51009BBAAB /* LoginService.swift */; };
 		F74E8FEF262FBF75006E38A2 /* ProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F74E8FEE262FBF75006E38A2 /* ProfileView.swift */; };
+		F75764592659EC3A004A749C /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F75764582659EC3A004A749C /* HomeView.swift */; };
+		F757645C2659EDE2004A749C /* WODView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F757645B2659EDE2004A749C /* WODView.swift */; };
 		F76BBF0426325B96001DAA7F /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = F76BBF0326325B96001DAA7F /* GoogleService-Info.plist */; };
 		F76BBF0A2632656F001DAA7F /* LoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F76BBF092632656F001DAA7F /* LoginViewModel.swift */; };
 		F76BBF122632657D001DAA7F /* LoginModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F76BBF112632657D001DAA7F /* LoginModel.swift */; };
@@ -63,8 +66,11 @@
 		7CFD2F7D135BEF1B178BAEAA /* Pods-MacrosTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MacrosTests.debug.xcconfig"; path = "Target Support Files/Pods-MacrosTests/Pods-MacrosTests.debug.xcconfig"; sourceTree = "<group>"; };
 		DB95B72B7BA966349DF3DEB9 /* Pods_MacrosTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MacrosTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		EA680DBDFEA032E615357F40 /* Pods-MacrosTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MacrosTests.release.xcconfig"; path = "Target Support Files/Pods-MacrosTests/Pods-MacrosTests.release.xcconfig"; sourceTree = "<group>"; };
+		F709D1182659F9B000212EAC /* GetProfileService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetProfileService.swift; sourceTree = "<group>"; };
 		F71A2BC726423E51009BBAAB /* LoginService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginService.swift; sourceTree = "<group>"; };
 		F74E8FEE262FBF75006E38A2 /* ProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileView.swift; sourceTree = "<group>"; };
+		F75764582659EC3A004A749C /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
+		F757645B2659EDE2004A749C /* WODView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WODView.swift; sourceTree = "<group>"; };
 		F76BBF0326325B96001DAA7F /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		F76BBF092632656F001DAA7F /* LoginViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewModel.swift; sourceTree = "<group>"; };
 		F76BBF112632657D001DAA7F /* LoginModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginModel.swift; sourceTree = "<group>"; };
@@ -154,6 +160,22 @@
 			path = Profile;
 			sourceTree = "<group>";
 		};
+		F75764572659EC10004A749C /* Tabbar */ = {
+			isa = PBXGroup;
+			children = (
+				F75764582659EC3A004A749C /* HomeView.swift */,
+			);
+			path = Tabbar;
+			sourceTree = "<group>";
+		};
+		F757645A2659EDCE004A749C /* WOD */ = {
+			isa = PBXGroup;
+			children = (
+				F757645B2659EDE2004A749C /* WODView.swift */,
+			);
+			path = WOD;
+			sourceTree = "<group>";
+		};
 		F7A209C92629E048008B6869 = {
 			isa = PBXGroup;
 			children = (
@@ -222,6 +244,7 @@
 		F7A20A03262A2AC1008B6869 /* Scenes */ = {
 			isa = PBXGroup;
 			children = (
+				F75764572659EC10004A749C /* Tabbar */,
 				F74E8FEA262FBF5B006E38A2 /* Profile */,
 				F7A20A4E262A2DBD008B6869 /* Login */,
 				F7A20A04262A2ACB008B6869 /* Admin */,
@@ -232,6 +255,7 @@
 		F7A20A04262A2ACB008B6869 /* Admin */ = {
 			isa = PBXGroup;
 			children = (
+				F757645A2659EDCE004A749C /* WOD */,
 				F7A20A17262A2B3B008B6869 /* Users */,
 			);
 			path = Admin;
@@ -316,6 +340,7 @@
 				F76BBF092632656F001DAA7F /* LoginViewModel.swift */,
 				F76BBF112632657D001DAA7F /* LoginModel.swift */,
 				F71A2BC726423E51009BBAAB /* LoginService.swift */,
+				F709D1182659F9B000212EAC /* GetProfileService.swift */,
 			);
 			path = Login;
 			sourceTree = "<group>";
@@ -563,6 +588,7 @@
 				F77562D0262D02B500379998 /* Color+Extension.swift in Sources */,
 				F7A20A29262A2BEE008B6869 /* MembershipStatus.swift in Sources */,
 				F7A20A35262A2C35008B6869 /* View+Extension.swift in Sources */,
+				F757645C2659EDE2004A749C /* WODView.swift in Sources */,
 				F7A20A10262A2B1D008B6869 /* FieldView.swift in Sources */,
 				F7A209D62629E048008B6869 /* MacrosApp.swift in Sources */,
 				F7A20A1A262A2B73008B6869 /* UserCellView.swift in Sources */,
@@ -571,11 +597,13 @@
 				F7A20A1F262A2B96008B6869 /* SearchBarView.swift in Sources */,
 				F76BBF0A2632656F001DAA7F /* LoginViewModel.swift in Sources */,
 				F7A20A3D262A2C5F008B6869 /* UIApplication+Extension.swift in Sources */,
+				F75764592659EC3A004A749C /* HomeView.swift in Sources */,
 				F7A20A24262A2BBE008B6869 /* UserViewModel.swift in Sources */,
 				F76BBF122632657D001DAA7F /* LoginModel.swift in Sources */,
 				F77562D5262D108300379998 /* UIScreen+Extension.swift in Sources */,
 				F77562CB262CFEF500379998 /* LoginView.swift in Sources */,
 				F7A20A07262A2AF1008B6869 /* AddUserView.swift in Sources */,
+				F709D1192659F9B000212EAC /* GetProfileService.swift in Sources */,
 				F7A20A42262A2CA9008B6869 /* UsersView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

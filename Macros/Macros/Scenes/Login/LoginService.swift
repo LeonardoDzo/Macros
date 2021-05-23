@@ -4,14 +4,17 @@
 //
 //  Created by Leonardo Durazo on 04/05/21.
 //
+import Combine
 import Firebase
 
-typealias LoginServiceModel = (id: String,
-                               email: String,
-                               password: String)
+struct LoginServiceModel {
+    var id: String
+    var email: String
+    var password: String
+}
 
 protocol LoginService {
-    func invoke(email: String, password: String, completion: @escaping (Result<LoginServiceModel, Error>) -> Void)
+    func invoke(email: String, password: String) -> Future<LoginServiceModel, Error>
 }
 
 class LoginServiceImp: LoginService {
@@ -21,17 +24,20 @@ class LoginServiceImp: LoginService {
         self.session = session
     }
 
-    func invoke(email: String, password: String, completion: @escaping (Result<LoginServiceModel, Error>) -> Void) {
-        session.signIn(withEmail: email, password: password) { (result, error) in
+    func invoke(email: String, password: String) -> Future<LoginServiceModel, Error> {
+        Future() { [unowned self] promise in
+            session.signIn(withEmail: email, password: password) { (result, error) in
 
-            guard let value = result, error == nil else {
-                completion(.failure(error!))
-                return
+                guard let value = result, error == nil else {
+                    promise(.failure(error!))
+                    return
+                }
+                let user = value.user
+                promise(.success(LoginServiceModel(id: user.uid,
+                                                      email: email,
+                                                      password: password)))
             }
-            let user = value.user
-            completion(.success(LoginServiceModel(id: user.uid,
-                                                  email: email,
-                                                  password: password)))
         }
+
     }
 }

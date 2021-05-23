@@ -11,6 +11,8 @@ extension Color {
 
     static let main = Color("MainColor")
 
+    static let mainTabBar = Color("MainColorTabBar")
+
     static let textField = Color("TextfieldColor")
 
     static let card = Color("CardColor")

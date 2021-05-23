@@ -11,24 +11,27 @@ import Combine
 protocol LoginViewModel: ObservableObject {
     var phone: String { get set }
     var password: String { get set }
-    var goToAdmin: Bool { get set }
+    var goToHomeView: Bool { get set }
+    var profile: ProfileViewModel? { get }
     var isLoginButonAvailable: Bool { get set }
-    func login() 
+    func login()
 }
 
 final class LoginViewModelImp: LoginViewModel {
-    @Published var phone: String = "" {
+    @Published var phone: String = "leo.durazod@gmail.com" {
         didSet {
             validate()
         }
     }
-    @Published var password: String = "" {
+    @Published var password: String = "Leonardo94" {
         didSet {
             validate()
         }
     }
-    @Published var goToAdmin: Bool = false
-    @Published var isLoginButonAvailable: Bool = false
+    @Published var goToHomeView: Bool = false
+    @Published var isLoginButonAvailable: Bool = true
+    var profile: ProfileViewModel?
+    var cancellationToken: AnyCancellable?
 
     private let model: LoginModel
 
@@ -37,7 +40,13 @@ final class LoginViewModelImp: LoginViewModel {
     }
 
     func login() {
-        model.login(email: phone, password: password)
+        cancellationToken = model.login(email: phone, password: password)
+            .sink(receiveCompletion: { error in
+                print(error)
+            }, receiveValue: { model in
+                self.profile = model
+                self.goToHomeView = true
+            })
     }
 
     private func validate() {

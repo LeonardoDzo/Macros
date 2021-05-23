@@ -18,6 +18,13 @@ struct ProfileViewModel {
         return "\(firstName) \(lastName)"
     }
 }
+extension ProfileViewModel {
+    init(from response: ProfileModelResponse) {
+        self.firstName = response.firstName
+        self.lastName = response.lastName
+        self.phone = "\(response.phone)"
+    }
+}
 
 struct NavigationConfigurator: UIViewControllerRepresentable {
     var configure: (UINavigationController) -> Void = { _ in }
@@ -39,10 +46,7 @@ struct ProfileView: View {
     var body: some View {
         NavigationView {
             ZStack {
-                SemiCircle()
-                    .fill(Color.main)
-                    .padding(.top, -UIScreen.width * 1.2)
-
+                Color.main.edgesIgnoringSafeArea(.all)
                 VStack(alignment: .leading) {
                     ZStack {
                         RoundedRectangle(cornerRadius: 10.0, style: .continuous)
@@ -68,8 +72,6 @@ struct ProfileView: View {
                                 .foregroundColor(Color.gray)
                         }.padding(.horizontal)
                     }.padding(.top, 30)
-
-
 
                     ZStack {
                         RoundedRectangle(cornerRadius: 10, style: .continuous)
@@ -99,11 +101,10 @@ struct ProfileView: View {
                         }.padding(.horizontal)
                     }.padding(.top, 30)
 
-
                     Spacer()
                 }.padding(.horizontal)
-                .navigationTitle("Perfil")
-            }
+                .background(Color(UIColor.systemBackground))
+            }.navigationTitle("Perfil")
 
         }
 

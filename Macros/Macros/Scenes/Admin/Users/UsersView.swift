@@ -15,10 +15,9 @@ struct UsersView: View {
     var users = [UserViewModel]()
 
     var body: some View {
-
-        TabView(selection: $selectedView) {
-
-            NavigationView {
+        NavigationView {
+            ZStack {
+                Color.main.edgesIgnoringSafeArea(.all)
                 VStack {
                     HStack {
                         SearchBar(text: $searchText)
@@ -38,16 +37,11 @@ struct UsersView: View {
                         }
                     }
                 }
-                .navigationBarTitle("Users", displayMode: .large)
-                .navigationBarItems(
-                    trailing: Image(systemName: "person.2.square.stack.fill")
-                ).navigationBarHidden(showCancelButton)
-
             }
-            .tabItem {
-                Image(systemName: "wallet.pass.fill")
-            }
-            .tag(1)
+            .navigationBarTitle("Usuarios", displayMode: .large)
+            .navigationBarItems(
+                trailing: Image(systemName: "person.2.square.stack.fill")
+            ).navigationBarHidden(showCancelButton)
         }
     }
 

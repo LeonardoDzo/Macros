@@ -7,26 +7,34 @@
 import Firebase
 import Combine
 
+enum LoginError {
+    case aut
+}
+
 protocol LoginModel {
-    func login(email: String, password: String)
+    func login(email: String, password: String) -> AnyPublisher<ProfileViewModel, Error>
 }
 
 final class LoginModelImp: LoginModel {
-    let service: LoginService
+    let loginService: LoginService
+    let getProfileService: GetProfileService
 
-    init(service: LoginService = LoginServiceImp()) {
-        self.service = service
+    init(loginService: LoginService = LoginServiceImp(),
+         getProfileService: GetProfileService = GetProfileServiceImp()) {
+        self.loginService = loginService
+        self.getProfileService = getProfileService
     }
 
-    func login(email: String, password: String) {
-        service.invoke(email: email, password: password) { (result) in
-            switch result {
-            case .success(let model):
-                print(model)
-            case .failure(let error):
-                print(error.localizedDescription)
-            }
-        }
+    func login(email: String, password: String) -> AnyPublisher<ProfileViewModel, Error> {
+        self.loginService.invoke(email: email, password: password)
+            .flatMap { loginModel in
+                return self.getProfileService.invoke(uid: loginModel.id).map { response in
+                    var response = response
+                    response.email = email
+                    response.id = loginModel.id
+                    return ProfileViewModel(from: response)
+                }
+            }.eraseToAnyPublisher()
     }
 }
 

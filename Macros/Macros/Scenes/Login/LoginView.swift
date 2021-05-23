@@ -36,7 +36,7 @@ struct LoginView<ViewModel: LoginViewModel>: View {
                         .font(.footnote)
 
 
-                    TextField("Teléfono", text: $viewModel.phone)
+                    TextField("Email", text: $viewModel.phone)
                         .padding()
                         .background(Color.textField)
                         .cornerRadius(25.0)
@@ -62,8 +62,9 @@ struct LoginView<ViewModel: LoginViewModel>: View {
 
                     })
                     .disabled(!viewModel.isLoginButonAvailable)
-                    .sheet(isPresented: $viewModel.goToAdmin, content: {
-                        UsersView()
+                    .sheet(isPresented: $viewModel.goToHomeView, content: {
+                        if let profile = viewModel.profile { HomeView(profileModel: profile)}
+
                     })
                 }.padding(.horizontal)
 
