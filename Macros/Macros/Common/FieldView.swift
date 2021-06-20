@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct FieldView: View {
-    @State private var value: String = ""
+    private var value: Binding<String>
     private var placeholder: String
     private var keyboardType: UIKeyboardType
 
@@ -16,7 +16,7 @@ struct FieldView: View {
 
         TextField(
             placeholder,
-            text: $value
+            text: value
         )
         .autocapitalization(.none)
         .frame(height: 80.0)
@@ -27,7 +27,8 @@ struct FieldView: View {
     }
 
 
-    init(placeholder: String, keyboardType: UIKeyboardType = .default) {
+    init(value: Binding<String>, placeholder: String, keyboardType: UIKeyboardType = .default) {
+        self.value = value
         self.placeholder = placeholder
         self.keyboardType = keyboardType
     }

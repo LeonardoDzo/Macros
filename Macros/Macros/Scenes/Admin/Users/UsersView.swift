@@ -11,6 +11,7 @@ struct UsersView: View {
     @State private var searchText = ""
     @State private var showCancelButton: Bool = false
     @State private var selectedView = 1
+    @State var isAddUserPresented = false
 
     var users = [UserViewModel]()
 
@@ -40,8 +41,16 @@ struct UsersView: View {
             }
             .navigationBarTitle("Usuarios", displayMode: .large)
             .navigationBarItems(
-                trailing: Image(systemName: "person.2.square.stack.fill")
-            ).navigationBarHidden(showCancelButton)
+                trailing: Button("Add", action: {
+                isAddUserPresented = true
+            })).navigationBarHidden(showCancelButton)
+                .sheet(isPresented: $isAddUserPresented) {
+                    isAddUserPresented = false
+                } content: {
+                    AddUserView<AddUserViewModelImp>().environmentObject(AddUserViewModelImp())
+                }
+
+
         }
     }
 

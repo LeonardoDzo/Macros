@@ -27,7 +27,6 @@ class LoginServiceImp: LoginService {
     func invoke(email: String, password: String) -> Future<LoginServiceModel, Error> {
         Future() { [unowned self] promise in
             session.signIn(withEmail: email, password: password) { (result, error) in
-
                 guard let value = result, error == nil else {
                     promise(.failure(error!))
                     return

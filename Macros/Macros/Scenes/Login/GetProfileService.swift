@@ -7,17 +7,35 @@
 import Combine
 import FirebaseFirestore
 
-struct ProfileModelResponse: Decodable {
-    var id: String?
-    var phone: Int
-    var email: String?
-    var lastName: String
-    var firstName: String
-    var gender: String
+struct Profile {
+
+    struct Response: Decodable {
+        var id: String?
+        var phone: Int
+        var email: String?
+        var lastName: String
+        var firstName: String
+        var gender: String
+    }
+
+    struct Request: Encodable {
+        var phone: Int
+        var firstName: String
+        var lastName: String
+        var gender: String
+    }
+}
+extension Profile.Request {
+    init(from profile: ProfileModel) {
+        self.init(phone: Int(profile.phone) ?? 0000000000,
+                  firstName: profile.firstName,
+                  lastName: profile.lastName,
+                  gender: profile.gender)
+    }
 }
 
 protocol GetProfileService {
-    func invoke(uid: String) -> Future<ProfileModelResponse, Error>
+    func invoke(uid: String) -> Future<Profile.Response, Error>
 }
 
 final class GetProfileServiceImp {
@@ -30,7 +48,7 @@ final class GetProfileServiceImp {
 }
 
 extension GetProfileServiceImp: GetProfileService {
-    func invoke(uid: String) -> Future<ProfileModelResponse, Error> {
+    func invoke(uid: String) -> Future<Profile.Response, Error> {
         return Future() { [weak self] promise in
             self?.docRef.document(uid).getDocument(completion: { result, error in
                 guard error == nil else {
@@ -54,6 +72,8 @@ extension GetProfileServiceImp: GetProfileService {
 
 enum MacroError: Error {
     case noData
+    case serialization
+    case custom(error: Error)
 }
 
 extension DocumentSnapshot {

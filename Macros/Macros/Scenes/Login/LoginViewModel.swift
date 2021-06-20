@@ -9,7 +9,7 @@ import SwiftUI
 import Combine
 
 protocol LoginViewModel: ObservableObject {
-    var phone: String { get set }
+    var email: String { get set }
     var password: String { get set }
     var goToHomeView: Bool { get set }
     var profile: ProfileViewModel? { get }
@@ -18,7 +18,7 @@ protocol LoginViewModel: ObservableObject {
 }
 
 final class LoginViewModelImp: LoginViewModel {
-    @Published var phone: String = "leo.durazod@gmail.com" {
+    @Published var email: String = "leo.durazod@gmail.com" {
         didSet {
             validate()
         }
@@ -40,7 +40,7 @@ final class LoginViewModelImp: LoginViewModel {
     }
 
     func login() {
-        cancellationToken = model.login(email: phone, password: password)
+        cancellationToken = model.login(email: email, password: password)
             .sink(receiveCompletion: { error in
                 print(error)
             }, receiveValue: { model in
@@ -50,6 +50,6 @@ final class LoginViewModelImp: LoginViewModel {
     }
 
     private func validate() {
-        isLoginButonAvailable = phone.count >= 10 && password.count >= 8
+        isLoginButonAvailable = email.count >= 10 && password.count >= 8
     }
 }

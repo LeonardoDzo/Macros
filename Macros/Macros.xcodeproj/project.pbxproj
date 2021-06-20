@@ -12,6 +12,10 @@
 		F2C28C52D7082AFF8EACE5F2 /* Pods_Macros.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 01C9616C8DA30B476F8CA477 /* Pods_Macros.framework */; };
 		F709D1192659F9B000212EAC /* GetProfileService.swift in Sources */ = {isa = PBXBuildFile; fileRef = F709D1182659F9B000212EAC /* GetProfileService.swift */; };
 		F71A2BC826423E51009BBAAB /* LoginService.swift in Sources */ = {isa = PBXBuildFile; fileRef = F71A2BC726423E51009BBAAB /* LoginService.swift */; };
+		F73DABC4267EE1520069ECF8 /* AddUserViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F73DABC3267EE1520069ECF8 /* AddUserViewModel.swift */; };
+		F73DABC6267EE7D20069ECF8 /* CreateAccountService.swift in Sources */ = {isa = PBXBuildFile; fileRef = F73DABC5267EE7D20069ECF8 /* CreateAccountService.swift */; };
+		F73DABC8267EEA5F0069ECF8 /* CreateProfileService.swift in Sources */ = {isa = PBXBuildFile; fileRef = F73DABC7267EEA5F0069ECF8 /* CreateProfileService.swift */; };
+		F73DABCA267EEF390069ECF8 /* CreateUserUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = F73DABC9267EEF390069ECF8 /* CreateUserUseCase.swift */; };
 		F74E8FEF262FBF75006E38A2 /* ProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F74E8FEE262FBF75006E38A2 /* ProfileView.swift */; };
 		F75764592659EC3A004A749C /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F75764582659EC3A004A749C /* HomeView.swift */; };
 		F757645C2659EDE2004A749C /* WODView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F757645B2659EDE2004A749C /* WODView.swift */; };
@@ -68,6 +72,10 @@
 		EA680DBDFEA032E615357F40 /* Pods-MacrosTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MacrosTests.release.xcconfig"; path = "Target Support Files/Pods-MacrosTests/Pods-MacrosTests.release.xcconfig"; sourceTree = "<group>"; };
 		F709D1182659F9B000212EAC /* GetProfileService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetProfileService.swift; sourceTree = "<group>"; };
 		F71A2BC726423E51009BBAAB /* LoginService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginService.swift; sourceTree = "<group>"; };
+		F73DABC3267EE1520069ECF8 /* AddUserViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddUserViewModel.swift; sourceTree = "<group>"; };
+		F73DABC5267EE7D20069ECF8 /* CreateAccountService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateAccountService.swift; sourceTree = "<group>"; };
+		F73DABC7267EEA5F0069ECF8 /* CreateProfileService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateProfileService.swift; sourceTree = "<group>"; };
+		F73DABC9267EEF390069ECF8 /* CreateUserUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateUserUseCase.swift; sourceTree = "<group>"; };
 		F74E8FEE262FBF75006E38A2 /* ProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileView.swift; sourceTree = "<group>"; };
 		F75764582659EC3A004A749C /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
 		F757645B2659EDE2004A749C /* WODView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WODView.swift; sourceTree = "<group>"; };
@@ -265,6 +273,10 @@
 			isa = PBXGroup;
 			children = (
 				F7A20A06262A2AF1008B6869 /* AddUserView.swift */,
+				F73DABC3267EE1520069ECF8 /* AddUserViewModel.swift */,
+				F73DABC5267EE7D20069ECF8 /* CreateAccountService.swift */,
+				F73DABC7267EEA5F0069ECF8 /* CreateProfileService.swift */,
+				F73DABC9267EEF390069ECF8 /* CreateUserUseCase.swift */,
 			);
 			path = AddUser;
 			sourceTree = "<group>";
@@ -587,16 +599,20 @@
 				F7A209D82629E048008B6869 /* ContentView.swift in Sources */,
 				F77562D0262D02B500379998 /* Color+Extension.swift in Sources */,
 				F7A20A29262A2BEE008B6869 /* MembershipStatus.swift in Sources */,
+				F73DABCA267EEF390069ECF8 /* CreateUserUseCase.swift in Sources */,
 				F7A20A35262A2C35008B6869 /* View+Extension.swift in Sources */,
+				F73DABC4267EE1520069ECF8 /* AddUserViewModel.swift in Sources */,
 				F757645C2659EDE2004A749C /* WODView.swift in Sources */,
 				F7A20A10262A2B1D008B6869 /* FieldView.swift in Sources */,
 				F7A209D62629E048008B6869 /* MacrosApp.swift in Sources */,
+				F73DABC8267EEA5F0069ECF8 /* CreateProfileService.swift in Sources */,
 				F7A20A1A262A2B73008B6869 /* UserCellView.swift in Sources */,
 				F7A20A2E262A2C0A008B6869 /* ResignKeyboardOnDragGesture.swift in Sources */,
 				F74E8FEF262FBF75006E38A2 /* ProfileView.swift in Sources */,
 				F7A20A1F262A2B96008B6869 /* SearchBarView.swift in Sources */,
 				F76BBF0A2632656F001DAA7F /* LoginViewModel.swift in Sources */,
 				F7A20A3D262A2C5F008B6869 /* UIApplication+Extension.swift in Sources */,
+				F73DABC6267EE7D20069ECF8 /* CreateAccountService.swift in Sources */,
 				F75764592659EC3A004A749C /* HomeView.swift in Sources */,
 				F7A20A24262A2BBE008B6869 /* UserViewModel.swift in Sources */,
 				F76BBF122632657D001DAA7F /* LoginModel.swift in Sources */,
@@ -691,7 +707,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 14.4;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -746,7 +762,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 14.4;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
@@ -767,7 +783,7 @@
 				DEVELOPMENT_TEAM = C934TR2FRR;
 				ENABLE_PREVIEWS = YES;
 				INFOPLIST_FILE = Macros/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -790,7 +806,7 @@
 				DEVELOPMENT_TEAM = C934TR2FRR;
 				ENABLE_PREVIEWS = YES;
 				INFOPLIST_FILE = Macros/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

@@ -19,7 +19,7 @@ struct ProfileViewModel {
     }
 }
 extension ProfileViewModel {
-    init(from response: ProfileModelResponse) {
+    init(from response: Profile.Response) {
         self.firstName = response.firstName
         self.lastName = response.lastName
         self.phone = "\(response.phone)"
@@ -103,8 +103,8 @@ struct ProfileView: View {
 
                     Spacer()
                 }.padding(.horizontal)
-                .background(Color(UIColor.systemBackground))
-            }.navigationTitle("Perfil")
+                    .background(Color(UIColor.systemBackground))
+            }.navigationBarTitle("Perfil", displayMode: .large)
 
         }
 
