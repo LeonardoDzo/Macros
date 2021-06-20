@@ -7,26 +7,36 @@
 
 import SwiftUI
 
-struct AddUserView: View {
+struct AddUserView<ViewModel: AddUserViewModel>: View {
+
+    @EnvironmentObject var viewModel: ViewModel
+
     var body: some View {
         VStack {
+            Color.main.edgesIgnoringSafeArea(.all)
             Group {
-                FieldView(placeholder: "First name")
-                FieldView(placeholder: "Last name")
+                FieldView(value: $viewModel.account.email, placeholder: "Email")
             }
-            FieldView(placeholder: "Phone number",
+            Group {
+                FieldView(value: $viewModel.profile.firstName, placeholder: "First name")
+                FieldView(value: $viewModel.profile.lastName, placeholder: "Last name")
+            }
+            Group {
+                FieldView(value: $viewModel.profile.phone, placeholder: "Phone number",
                       keyboardType: .phonePad)
+                FieldView(value: $viewModel.profile.gender, placeholder: "Gender")
+            }
 
             Button("Add") {
-                print(#function)
+                viewModel.createUserAccount()
             }
-        }.padding(.trailing)
+        }.padding(.horizontal)
     }
 }
 
 struct AddUserView_Previews: PreviewProvider {
     static var previews: some View {
-        AddUserView()
+        AddUserView<AddUserViewModelImp>().environmentObject(AddUserViewModelImp())
     }
 }
 

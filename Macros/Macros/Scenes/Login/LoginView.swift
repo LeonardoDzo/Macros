@@ -36,12 +36,13 @@ struct LoginView<ViewModel: LoginViewModel>: View {
                         .font(.footnote)
 
 
-                    TextField("Email", text: $viewModel.phone)
+                    TextField("Email", text: $viewModel.email)
                         .padding()
                         .background(Color.textField)
                         .cornerRadius(25.0)
                         .keyboardType(.phonePad)
                         .padding(.top)
+
 
                     SecureField("Contraseña", text: $viewModel.password)
                         .padding()
